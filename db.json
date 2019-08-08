@@ -1,0 +1,31 @@
+{
+  "assetType": [
+    {
+      "id": 1,
+      "name": "aaa",
+      "enName": "aa"
+    }
+  ],
+  "asset": [
+    {
+      "id": 1,
+      "name": "笔记本电脑1",
+      "type": "computer"
+    },
+    {
+      "id": 3,
+      "name": "笔记本电脑3",
+      "type": "computer"
+    },
+    {
+      "id": 4,
+      "name": "aaa",
+      "type": "啊啊啊"
+    },
+    {
+      "id": 5,
+      "name": "笔记本电脑111",
+      "type": "computer"
+    }
+  ]
+}
