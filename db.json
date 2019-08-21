@@ -1,31 +1,80 @@
 {
   "assetType": [
     {
-      "id": 1,
-      "name": "aaa",
-      "enName": "aa"
+      "id": 2,
+      "name": "笔记本电脑",
+      "enName": "computer"
+    },
+    {
+      "id": 3,
+      "name": "台式机",
+      "enName": "desktop"
     }
   ],
   "asset": [
     {
-      "id": 1,
-      "name": "笔记本电脑1",
+      "id": 8,
+      "name": "第一台笔记本",
       "type": "computer"
     },
     {
-      "id": 3,
-      "name": "笔记本电脑3",
-      "type": "computer"
-    },
+      "id": 9,
+      "name": "第一台台式机",
+      "type": "desktop"
+    }
+  ],
+  "department": [
     {
       "id": 4,
-      "name": "aaa",
-      "type": "啊啊啊"
+      "name": "第一个部门",
+      "enName": "oneDepartment"
     },
     {
       "id": 5,
-      "name": "笔记本电脑111",
-      "type": "computer"
+      "name": "第二个部门",
+      "enName": "secondDepartment"
+    }
+  ],
+  "assetBorrow": [
+    {
+      "id": 2,
+      "department": "oneDepartment",
+      "type": "computer",
+      "asset": "第一台笔记本",
+      "beginTime": "2019-08-13 00:00:00",
+      "endTime": "2019-08-18 16:00:00"
+    },
+    {
+      "id": 3,
+      "department": "secondDepartment",
+      "type": "computer",
+      "asset": "第一台笔记本",
+      "beginTime": "2019-08-18 00:00:00",
+      "endTime": "2019-08-19 00:00:00"
+    },
+    {
+      "id": 4,
+      "department": "secondDepartment",
+      "type": "computer",
+      "asset": "第一台笔记本",
+      "beginTime": "2019-08-19 00:00:00",
+      "endTime": "2019-08-20 00:00:00"
+    },
+    {
+      "id": 5,
+      "department": "secondDepartment",
+      "type": "computer",
+      "asset": "第一台笔记本",
+      "beginTime": "2019-08-20 00:00:00",
+      "endTime": "2019-08-21 00:00:00"
+    },
+    {
+      "id": 6,
+      "department": "secondDepartment",
+      "type": "desktop",
+      "asset": "第一台台式机",
+      "beginTime": "2019-08-22 00:00:00",
+      "endTime": "2019-08-23 00:00:00"
     }
   ]
 }

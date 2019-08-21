@@ -27,6 +27,35 @@ const actions = {
     }
   },
   /**
+   * 查询所有资产列表
+   */
+  queryAssetAction ({ commit }, searchParams) {
+    const filterFunction = function (obj) {
+      let hasType = true
+      let hasName = true
+      if (searchParams) {
+        if (searchParams.type) {
+          hasType = obj.type.indexOf(searchParams.type) >= 0
+        }
+        if (searchParams.name) {
+          hasName = obj.name.indexOf(searchParams.name) >= 0
+        }
+      }
+      return hasType && hasName
+    }
+    const data = db.get('asset').filter(filterFunction).cloneDeep().value()
+    return data
+  },
+  /**
+   * 根据名称判断要新增的名称是否已存在
+   * @param {*} content
+   * @param {Object} asset 要新增的名称
+   */
+  hasAssetAction (content, asset) {
+    const obj = db.get('asset').find({ name: asset.name })
+    return !!obj
+  },
+  /**
    * 新增资产
    * @param {*} param0 commit
    * @param {Object} asset 新增资产数据

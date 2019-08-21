@@ -18,18 +18,18 @@ const mutations = {
 
 const actions = {
   /**
-   * 获取当前资产类型最大的主键
+   * 获取当前部门最大的主键
    */
-  getMaxAssetTypeId ({ commit }) {
-    let latestObj = db.get('assetType').maxBy(asset => asset.id).value()
+  getMaxDepartmentId ({ commit }) {
+    let latestObj = db.get('department').maxBy(asset => asset.id).value()
     if (latestObj) {
       commit('UPDATE_ID', latestObj.id)
     }
   },
   /**
-   * 查询所有资产列表
+   * 查询所有部门列表
    */
-  queryAssetTypeAction ({ commit }, searchParams) {
+  queryDepartmentAction ({ commit }, searchParams) {
     const filterFunction = function (obj) {
       let hasEnName = true
       let hasName = true
@@ -43,27 +43,27 @@ const actions = {
       }
       return hasEnName && hasName
     }
-    const data = db.get('assetType').filter(filterFunction).cloneDeep().value()
+    const data = db.get('department').filter(filterFunction).cloneDeep().value()
     return data
   },
   /**
-   * 新增资产
+   * 新增部门
    * @param {*} param0 commit
-   * @param {Object} asset 新增资产数据
+   * @param {Object} department 新增部门数据
    */
-  addAssetTypeAction ({ state, commit }, assetType) {
+  addDepartmentAction ({ state, commit }, department) {
     commit('INCREMENT_ID')
-    let newAsset = Object.assign({}, assetType, { id: state.id })
-    db.get('assetType').push(newAsset).write()
+    let newDepartment = Object.assign({}, department, { id: state.id })
+    db.get('department').push(newDepartment).write()
     return true
   },
   /**
    * 更新资源信息
    * @param {*} param0 commit
-   * @param {Object} asset 修改的资源
+   * @param {Object} department 修改的资源
    */
-  updateAssetTypeAction ({ state, commit }, assetType) {
-    db.get('assetType').find({ id: assetType.id }).assign(assetType).write()
+  updateDepartmentAction ({ state, commit }, department) {
+    db.get('department').find({ id: department.id }).assign(department).write()
     return true
   },
   /**
@@ -71,8 +71,8 @@ const actions = {
    * @param {*} param0 commit
    * @param {Number} id 要删除的资源id
    */
-  deleteAssetTypeAction ({ commit }, id) {
-    db.get('assetType').remove({ id: id }).write()
+  deleteDepartmentAction ({ commit }, id) {
+    db.get('department').remove({ id: id }).write()
     return true
   }
 }

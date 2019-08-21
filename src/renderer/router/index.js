@@ -9,6 +9,7 @@ export default new Router({
       path: '/',
       name: 'home',
       component: require('@/pages/home/index').default,
+      redirect: 'asset-borrow',
       children: [
         {
           path: 'landing-page',
@@ -16,14 +17,19 @@ export default new Router({
           component: require('@/components/LandingPage').default
         },
         {
-          path: 'add-asset',
-          name: 'add-asset',
-          component: require('@/pages/asset-add/index').default
+          path: 'asset-borrow',
+          name: 'asset-borrow',
+          component: require('@/pages/asset-borrow/index').default
         },
         {
-          path: 'add-asset-type',
-          name: 'add-asset-type',
-          component: require('@/pages/asset-type-add/index').default
+          path: 'department-list',
+          name: 'department-list',
+          component: require('@/pages/department-list/index').default
+        },
+        {
+          path: 'asset-type-list',
+          name: 'asset-type-list',
+          component: require('@/pages/asset-type-list/index').default
         },
         {
           path: 'asset-list',

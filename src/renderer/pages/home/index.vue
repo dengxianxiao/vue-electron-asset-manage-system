@@ -1,27 +1,32 @@
 <template>
   <el-container class="home">
-    <el-header class="header-container"></el-header>
+    <el-header class="header-container">
+      <div class="header-left">
+        <span class="title">资产管理系统</span>
+      </div>
+      <div class="header-right"></div>
+    </el-header>
     <el-container>
-      <el-aside style="width: 200px">
+      <el-aside style="width: 200px; height: 100%">
         <el-menu
-          default-active="landing-page"
+          default-active="asset-borrow"
           router
           class="el-menu-vertical">
-          <el-menu-item index="landing-page">
+          <el-menu-item index="asset-borrow">
             <i class="el-icon-menu"></i>
-            <span slot="title">导航二</span>
+            <span slot="title">资产流动管理</span>
           </el-menu-item>
-          <el-menu-item index="add-asset">
-            <i class="el-icon-document"></i>
-            <span slot="title">导航三</span>
-          </el-menu-item>
-          <el-menu-item index="add-asset-type">
-            <i class="el-icon-setting"></i>
-            <span slot="title">导航四</span>
+          <el-menu-item index="asset-type-list">
+            <i class="el-icon-s-grid"></i>
+            <span slot="title">资产类型管理</span>
           </el-menu-item>
           <el-menu-item index="asset-list">
-            <i class="el-icon-setting"></i>
-            <span slot="title">导航五</span>
+            <i class="el-icon-s-goods"></i>
+            <span slot="title">资产管理</span>
+          </el-menu-item>
+          <el-menu-item index="department-list">
+            <i class="el-icon-s-cooperation"></i>
+            <span slot="title">部门管理</span>
           </el-menu-item>
         </el-menu>
       </el-aside>
@@ -51,6 +56,10 @@ export default {
      * 初始化资产类型最大ID
      */
     this.$store.dispatch('assetType/getMaxAssetTypeId')
+    /**
+     * 初始化资产类型最大ID
+     */
+    this.$store.dispatch('department/getMaxDepartmentId')
   },
   methods: {
 
@@ -61,7 +70,26 @@ export default {
 <style lang="less" scoped>
 .home {
   .header-container {
-    background-color: lightblue;
+    background-color: #dff8ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .header-left {
+      margin-left: 40px;
+      .title {
+        font-size: 24px;
+        letter-spacing: 2px;
+        font-style: oblique;
+      }
+    }
+  }
+}
+</style>
+
+<style lang="less">
+.home {
+  .el-aside .el-menu {
+    height: 90vh;
   }
 }
 </style>
